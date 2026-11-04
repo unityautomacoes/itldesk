@@ -130,7 +130,7 @@ jobs:
           cp -r ./rustdesk ./itldesk-msi
           mv ./itldesk-msi/rustdesk.exe ./itldesk-msi/ITLDesk.exe
           pushd ./res/msi
-          python preprocess.py --arp -d ../../itldesk-msi --app-name ITLDesk
+          python preprocess.py --arp -d ../../itldesk-msi --app-name ITLDesk --manufacturer "Unity Automacoes"
           nuget restore msi.sln
           msbuild msi.sln -p:Configuration=Release -p:Platform=x64 /p:TargetVersion=Windows10
           $msi = Get-ChildItem ./Package/bin/*/Release/en-us/Package.msi | Select-Object -First 1
